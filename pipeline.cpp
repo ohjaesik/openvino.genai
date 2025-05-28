@@ -103,6 +103,9 @@ ov::genai::LLMPipeline::LLMPipeline(
     m_device(device) {
     auto start_time = std::chrono::steady_clock::now();
     auto [properties, attention_backend] = utils::extract_attention_backend(user_properties);
+    if (device == "NPU") {
+    patch_npu_properties(properties);
+}
 
     // If CB is invoked explicitly, create CB adapter as is and re-throw in case if internal issues
     if (utils::explicitly_requires_paged_attention(user_properties)) {
@@ -112,9 +115,7 @@ ov::genai::LLMPipeline::LLMPipeline(
     }
 
 // Apply default NPU-safe settings before pipeline creation
-if (device == "NPU") {
-    patch_npu_properties(properties);
-}    
+
 if (m_pimpl == nullptr && device == "NPU") {
     m_pimpl = static_llm::LLMPipelineFactory::create(
         utils::singleton_core().read_model(model_str, weights_tensor),
@@ -159,6 +160,9 @@ ov::genai::LLMPipeline::LLMPipeline(
     auto start_time = std::chrono::steady_clock::now();
 
     auto [properties, attention_backend] = utils::extract_attention_backend(user_properties);
+    if (device == "NPU") {
+    patch_npu_properties(properties);
+}
 
     // If CB is invoked explicitly, create CB adapter as is and re-throw in case if internal issues
     if (utils::explicitly_requires_paged_attention(user_properties)) {
@@ -199,6 +203,9 @@ ov::genai::LLMPipeline::LLMPipeline(
     auto start_time = std::chrono::steady_clock::now();
 
     auto [properties, attention_backend] = utils::extract_attention_backend(user_properties);
+    if (device == "NPU") {
+    patch_npu_properties(properties);
+}
 
     // If CB is invoked explicitly, create CB adapter as is and re-throw in case if internal issues
     if (utils::explicitly_requires_paged_attention(user_properties)) {
