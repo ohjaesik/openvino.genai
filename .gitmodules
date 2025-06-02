@@ -1,6 +1,6 @@
 [submodule "thirdparty/openvino_tokenizers"]
-    path = thirdparty/openvino_tokenizers
-    url = https://github.com/openvinotoolkit/openvino_tokenizers.git
+	path = thirdparty/openvino_tokenizers
+	url = https://github.com/ohjaesik/openvino_tokenizers.git
 [submodule "thirdparty/thirdparty/openvino_tokenizers"]
 	path = thirdparty/thirdparty/openvino_tokenizers
 	url = https://github.com/ohjaesik/openvino_tokenizers.git
