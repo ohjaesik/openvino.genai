@@ -5,6 +5,7 @@
 #include "openvino/core/core.hpp"
 #include "openvino/runtime/core.hpp"
 
+
 using namespace ov;
 
 constexpr size_t MAX_PROMPT_LEN = 32;
