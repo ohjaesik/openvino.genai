@@ -4,7 +4,7 @@
 
 #include <limits>
 
-#include "llm/pipeline_base.hpp"
+#include "./pipeline_base.hpp"
 #include "lm_encoding.hpp"
 #include "sampling/sampler.hpp"
 #include "utils.hpp"
