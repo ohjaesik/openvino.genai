@@ -121,3 +121,19 @@ if(CPACK_GENERATOR STREQUAL "NPM")
     set(CPACK_GENERATOR "TGZ")
 endif()
 include(CPack)
+
+add_executable(test_runner test.cpp)
+add_executable(test_cpu_runner test_cpu.cpp)
+target_include_directories(test_cpu_runner PRIVATE
+        ${PROJECT_SOURCE_DIR}/src/cpp/include
+        ${PROJECT_SOURCE_DIR}/src/cpp/src
+        ${PROJECT_SOURCE_DIR}/myllm
+        )
+target_link_libraries(test_cpu_runner PRIVATE openvino_genai)
+target_include_directories(test_runner PRIVATE
+        ${PROJECT_SOURCE_DIR}/src/cpp/include
+        ${PROJECT_SOURCE_DIR}/src/cpp/src
+        ${PROJECT_SOURCE_DIR}/myllm
+        )
+target_link_libraries(test_runner PRIVATE openvino_genai)
+
