@@ -9,6 +9,7 @@
 #include "openvino/genai/generation_config.hpp"
 
 using namespace ov;
+using ov::genai::Tokenizer;
 
 constexpr size_t MAX_PROMPT_LEN = 32;
 constexpr size_t MIN_RESPONSE_LEN = 32;
