@@ -59,13 +59,12 @@ StatefulLLMPipeline build_pipeline(const std::filesystem::path& model_path,
     gen_config.eos_token_id = tokenizer.get_eos_token_id();
     gen_config.num_return_sequences = 1;
     gen_config.do_sample = false;
+    gen_config.num_beams = 1;
 
     if (device.find("NPU") != std::string::npos ||
         device.find("MULTI") != std::string::npos ||
         device.find("AUTO") != std::string::npos) {
-        gen_config.beam_search = false;
-        gen_config.multinomial = false;
-        gen_config.greedy = true;
+
     }
 
     return StatefulLLMPipeline(model, tokenizer, device, properties, gen_config);
