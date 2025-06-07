@@ -63,9 +63,9 @@ StatefulLLMPipeline build_pipeline(const std::filesystem::path& model_path,
     if (device.find("NPU") != std::string::npos ||
         device.find("MULTI") != std::string::npos ||
         device.find("AUTO") != std::string::npos) {
-        gen_config.set_beam_search(false);
-        gen_config.set_multinomial(false);
-        gen_config.set_greedy(true);
+        gen_config.beam_search = false;
+        gen_config.multinomial = false;
+        gen_config.greedy = true;
     }
 
     return StatefulLLMPipeline(model, tokenizer, device, properties, gen_config);
@@ -86,7 +86,8 @@ int main() {
 
         auto pipeline = build_pipeline(model_dir, tokenizer, device);
         std::string prompt = "What is the capital of France?";
-        auto result = pipeline.generate(prompt);
+        std::vector<std::string> inputs = {prompt};
+        auto result = pipeline.generate(inputs, std::nullopt, std::monostate{});
 
         for (const auto& output : result.texts) {
             std::cout << "[Answer]: " << output << std::endl;
