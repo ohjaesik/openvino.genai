@@ -65,6 +65,7 @@ ov::genai::StatefulLLMPipeline build_pipeline(const std::filesystem::path& model
     ov::genai::GenerationConfig gen_config;
     gen_config.max_length = MAX_PROMPT_LEN + MIN_RESPONSE_LEN;
     gen_config.eos_token_id = tokenizer.get_eos_token_id();
+    gen_config.stop_token_ids = {gen_config.eos_token_id}; 
     gen_config.num_return_sequences = 1;
     gen_config.do_sample = false;
 
