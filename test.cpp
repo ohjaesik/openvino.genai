@@ -4,7 +4,9 @@
 #include "./myllm/pipeline_stateful.hpp"
 #include "openvino/core/core.hpp"
 #include "openvino/runtime/core.hpp"
-
+#include "openvino/genai/llm_pipeline.hpp"
+#include "openvino/genai/tokenizer.hpp"
+#include "openvino/genai/generation_config.hpp"
 
 using namespace ov;
 
