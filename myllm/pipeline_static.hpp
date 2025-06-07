@@ -5,7 +5,7 @@
 
 #include <filesystem>
 
-#include "llm/pipeline_base.hpp"
+#include "./pipeline_base.hpp"
 #include "sampling/sampler.hpp"
 
 namespace ov {
