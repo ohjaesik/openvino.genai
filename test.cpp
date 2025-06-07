@@ -71,7 +71,7 @@ StatefulLLMPipeline build_pipeline(const std::filesystem::path& model_path,
 }
 
 int main() {
-    std::string model_dir = "./Llama-2-7B-Chat-FP16";
+    std::string model_dir = "./open_llama_7b_v2-fp16-ov";
     std::vector<std::string> device_list = {
         "MULTI:NPU,CPU",
         "AUTO",
