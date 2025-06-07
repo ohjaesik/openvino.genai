@@ -1,3 +1,76 @@
+# 📦 OpenVINO GenAI with NPU Optimization
+
+## 🥅 Goal
+
+본 프로젝트는 **NPU에서 텍스트 응답 속도와 자원 점유율을 효과적으로 향상**시키기 위한 목적을 가지고 수행되었습니다.  
+기존 OpenVINO GenAI 파이프라인을 확장하여, NPU에서 더 빠르고 안정적인 성능을 보장하는 **경량 LLM 파이프라인**을 구성했습니다.
+
+---
+
+## 📋 Requirements
+
+**Base Image**  
+- `ubuntu:22.04`
+
+**필수 패키지**
+- `python3.10`, `python3.10-venv`, `python3.10-dev`, `python3-pip`
+- `git`, `vim`, `wget`, `curl`, `unzip`, `sudo`, `lsb-release`
+- `build-essential`
+- `cmake 3.23.0`  
+  설치 명령어:
+  ```bash
+  wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.sh
+  chmod +x cmake-3.23.0-linux-x86_64.sh
+  ./cmake-3.23.0-linux-x86_64.sh --skip-license --prefix=/usr/local
+  ```
+
+**Python 패키지**
+- `openvino==2025.1`
+- `openvino-genai==2025.1`
+- `openvino-tokenizers==2025.1`
+- `nncf==2.14.1`
+- `optimum-intel==1.22.0`
+- `transformers`
+- `accelerate`
+- `numpy`
+- `onnx==1.17.0`
+- `torch`
+- `gradio`
+
+---
+
+## 🛠 How to Install & Run
+
+### 1. Docker 이미지 로드
+
+```bash
+docker load -i final_2022040014.tar
+docker images  # 이미지가 잘 로드되었는지 확인
+```
+
+### 2. Docker 컨테이너 실행
+
+```bash
+docker run -dit final-2022040014:v1
+docker ps  # 컨테이너 ID 확인
+docker exec -it <container_id> bash  # 컨테이너 접속
+```
+
+### 3. 프로젝트 초기화
+
+```bash
+git submodule update --init --recursive
+```
+
+### 4. Build 및 실행
+
+```bash
+cmake .
+make test_cpu_runner
+./test_cpu_runner
+```
+
+
 # OpenVINO™ GenAI
 
 ![](src/docs/openvino_genai.svg)
