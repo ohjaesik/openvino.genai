@@ -1,6 +1,8 @@
 // 멀티 디바이스 (MULTI, AUTO, HETERO) 설정별 LLM 파이프라인 예제
 // OpenVINO GenAI에서 다양한 디바이스 조합으로 실행 가능한 구조
 
+
+
 #include "./myllm/pipeline_stateful.hpp"
 #include "openvino/core/core.hpp"
 #include "openvino/runtime/core.hpp"
