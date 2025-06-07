@@ -11,6 +11,7 @@
 using namespace ov;
 using ov::genai::Tokenizer;
 using ov::genai::StatefulLLMPipeline; 
+using ov::genai::GenerationConfig;
 
 constexpr size_t MAX_PROMPT_LEN = 32;
 constexpr size_t MIN_RESPONSE_LEN = 32;
