@@ -70,6 +70,39 @@ make test_cpu_runner
 ./test_cpu_runner
 ```
 
+---
+
+## 📁 디렉토리 구조
+
+```
+openvino.genai/
+├── CMakeLists.txt
+├── README.md
+├── test_cpu.cpp                     # main 테스트 실행 파일
+├── myllm/                           # 사용자 정의 LLM 파이프라인 코드
+│   ├── pipeline_base.hpp
+│   ├── pipeline_stateful.hpp
+│   └── ...
+├── src/                             # OpenVINO GenAI 핵심 구현부
+│   ├── cpp/
+│   ├── c/
+│   └── python/
+├── openvino_tokenizers/            # tokenizer 관련 모듈 (서브모듈 포함)
+├── _deps/                          # 외부 종속 라이브러리 (sentencepiece, ICU 등)
+├── samples/                        # 샘플 실행 코드
+├── tools/                          # 벤치마크 및 continuous batching 도구
+├── ov_cache/                       # 모델 실행 시 생성되는 캐시 디렉토리
+└── Llama-2-7B-Chat-FP16/           # 모델 디렉토리 (openvino_model.xml 등 포함)
+    └── openvino_model.xml
+```
+
+## 📌 test_cpu.cpp에서 사용하는 주요 디렉토리
+
+- `myllm/`: 직접 작성한 `StatefulLLMPipeline` 구현이 포함된 디렉토리  
+- `Llama-2-7B-Chat-FP16/`: 실행할 모델의 `.xml`과 `.bin`이 위치  
+- `ov_cache/`: NPU 실행 시 중간 캐시 파일 저장 경로  
+- `src/cpp/include/openvino/genai/`: `Tokenizer`, `GenerationConfig` 등 사용되는 핵심 API 헤더 포함
+
 
 # OpenVINO™ GenAI
 
