@@ -107,6 +107,25 @@ openvino.genai/
 - `ov_cache/`: NPU 실행 시 중간 캐시 파일 저장 경로  
 - `src/cpp/include/openvino/genai/`: `Tokenizer`, `GenerationConfig` 등 사용되는 핵심 API 헤더 포함
 
+## 실행을 마치고 종료
+
+### 1. 컨테이너 종료
+```bash
+eixt
+```
+
+### 2. 컨테이너 중지
+```bash
+docker stop <container ID>
+
+docker stop $(docker ps -q)
+```
+
+### 3. 이미지 삭제
+```bash
+docker rmi final_2022040014:v1
+```
+
 
 # OpenVINO™ GenAI
 
