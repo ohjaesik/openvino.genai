@@ -62,10 +62,10 @@ docker exec -it <container_id> bash  # 컨테이너 접속
 git submodule update --init --recursive
 ```
 ### 4. 모델 다운로드
-'''bash
+```bash
 pip install huggingface_hub
 huggingface-cli download OpenVINO/open_llama_7b_v2-fp16-ov --local-dir open_llama_7b_v2-fp16-ov
-'''
+```
 ### 5. Build 및 실행
 
 ```bash
