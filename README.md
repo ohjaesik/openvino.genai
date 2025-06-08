@@ -59,6 +59,7 @@ docker exec -it <container_id> bash  # 컨테이너 접속
 ### 3. 프로젝트 초기화
 
 ```bash
+git init
 git submodule update --init --recursive
 ```
 ### 4. 모델 다운로드
